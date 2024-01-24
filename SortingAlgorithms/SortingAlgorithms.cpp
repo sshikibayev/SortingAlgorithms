@@ -1,9 +1,9 @@
 #include <iostream>
 #include <memory>
 
-#include "SortingTests.h"
-#include "SortBase.h"
-#include "Selection.h"
+#include "Public/Tests/SortingTests.h"
+#include "Public/SortAlgorithms/SortBase.h"
+#include "Public/SortAlgorithms/Selection.h"
 
 int main()
 {

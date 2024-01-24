@@ -1,7 +1,6 @@
-#include "SortingTests.h"
+#include "Tests/SortingTests.h"
 
-
-#include "SortBase.h"
+#include "SortAlgorithms/SortBase.h"
 
 void SortingTests::LaunchAll(const std::shared_ptr<SortBase> SortingAlgorithm, const std::string& ImplementationName)
 {

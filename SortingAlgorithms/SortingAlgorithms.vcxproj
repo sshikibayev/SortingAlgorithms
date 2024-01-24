@@ -70,6 +70,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -104,6 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>E:\Programming learning\Algorithms\Sorting\SortingAlgorithms\SortingAlgorithms\Public;E:\Programming learning\Algorithms\Sorting\SortingAlgorithms\SortingAlgorithms\Private</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,15 +129,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Selection.cpp" />
-    <ClCompile Include="SortBase.cpp" />
+    <ClCompile Include="Private\SortAlgorithms\Selection.cpp" />
+    <ClCompile Include="Private\SortAlgorithms\SortBase.cpp" />
+    <ClCompile Include="Private\Tests\SortingTests.cpp" />
     <ClCompile Include="SortingAlgorithms.cpp" />
-    <ClCompile Include="SortingTests.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SortingTests.h" />
-    <ClInclude Include="Selection.h" />
-    <ClInclude Include="SortBase.h" />
+    <ClInclude Include="Public\SortAlgorithms\Selection.h" />
+    <ClInclude Include="Public\SortAlgorithms\SortBase.h" />
+    <ClInclude Include="Public\Tests\SortingTests.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

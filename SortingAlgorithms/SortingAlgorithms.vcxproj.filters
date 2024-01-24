@@ -1,42 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Public">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Public\SortAlgorithms">
+      <UniqueIdentifier>{f7259302-f4e9-452a-ae3e-ac45d2bd73f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Tests">
+      <UniqueIdentifier>{3d5cf4b0-85a0-44c7-ad89-7196471b7ca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Private\SortAlgorithms">
+      <UniqueIdentifier>{20e18731-f646-4b25-beba-142435fec9e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Tests">
+      <UniqueIdentifier>{aacf4a73-e902-49bb-a92c-c72a2b2de2d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SortingAlgorithms.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Private</Filter>
     </ClCompile>
-    <ClCompile Include="Selection.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Private\Tests\SortingTests.cpp">
+      <Filter>Private</Filter>
     </ClCompile>
-    <ClCompile Include="SortingTests.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Private\SortAlgorithms\Selection.cpp">
+      <Filter>Private</Filter>
     </ClCompile>
-    <ClCompile Include="SortBase.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Private\SortAlgorithms\SortBase.cpp">
+      <Filter>Private</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SortBase.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Public\Tests\SortingTests.h">
+      <Filter>Public</Filter>
     </ClInclude>
-    <ClInclude Include="Selection.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Public\SortAlgorithms\Selection.h">
+      <Filter>Public</Filter>
     </ClInclude>
-    <ClInclude Include="SortingTests.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Public\SortAlgorithms\SortBase.h">
+      <Filter>Public</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
