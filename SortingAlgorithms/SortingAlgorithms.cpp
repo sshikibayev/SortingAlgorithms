@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 #include "SortingTests.h"
 #include "SortBase.h"
@@ -6,8 +7,8 @@
 
 int main()
 {
-    SortingTests* Tests{ new SortingTests() };
+    std::unique_ptr<SortingTests> Tests{ std::make_unique<SortingTests>() };
+    std::shared_ptr<SortBase> SelectionSort{ std::make_shared<Selection>() };
 
-    SortBase* SelectionSort{ new Selection() };
     Tests->LaunchAll(SelectionSort, "SelectionSort");
 }

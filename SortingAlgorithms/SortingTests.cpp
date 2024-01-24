@@ -1,8 +1,9 @@
 #include "SortingTests.h"
 
+
 #include "SortBase.h"
 
-void SortingTests::LaunchAll(SortBase* SortingAlgorithm, const std::string& ImplementationName)
+void SortingTests::LaunchAll(const std::shared_ptr<SortBase> SortingAlgorithm, const std::string& ImplementationName)
 {
     std::cout << "------------------- START " << ImplementationName << " -------------------" << std::endl;
 
@@ -17,6 +18,14 @@ void SortingTests::LaunchAll(SortBase* SortingAlgorithm, const std::string& Impl
     SimpleRepetition(SortingAlgorithm);
     std::cout << "---------------------------------------------------------------" << std::endl;
     SimpleMix(SortingAlgorithm);
+    std::cout << "---------------------------------------------------------------" << std::endl;
+    SimpleSmallInput(SortingAlgorithm);
+    std::cout << "---------------------------------------------------------------" << std::endl;
+    SimpleEmptyInput(SortingAlgorithm);
+    std::cout << "---------------------------------------------------------------" << std::endl;
+    SimpleOneInput(SortingAlgorithm);
+    std::cout << "---------------------------------------------------------------" << std::endl;
+    SimpleBigInput(SortingAlgorithm);
 
     std::cout << "------------------- END " << ImplementationName << " ---------------------" << std::endl;
 
@@ -24,7 +33,7 @@ void SortingTests::LaunchAll(SortBase* SortingAlgorithm, const std::string& Impl
 
 //---------------START TESTS -------------------------
 
-void SortingTests::Simple(SortBase* SortingAlgorithm)
+void SortingTests::Simple(std::shared_ptr<SortBase> SortingAlgorithm)
 {
     std::vector<int> UnsortedInputVector{ 5, 4, 3, 2, 1, 0 };
     std::vector<int> ExpectedVector{ 0, 1, 2, 3, 4, 5 };
@@ -39,7 +48,7 @@ void SortingTests::Simple(SortBase* SortingAlgorithm)
     InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);
 }
 
-void SortingTests::SimpleMoreSpread(SortBase* SortingAlgorithm)
+void SortingTests::SimpleMoreSpread(std::shared_ptr<SortBase> SortingAlgorithm)
 {
     std::vector<int> UnsortedInputVector{ 2, 1, 3, 4, 0, 5 };
     std::vector<int> ExpectedVector{ 0, 1, 2, 3, 4, 5 };
@@ -54,7 +63,7 @@ void SortingTests::SimpleMoreSpread(SortBase* SortingAlgorithm)
     InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);
 }
 
-void SortingTests::SimpleBigNumbers(SortBase* SortingAlgorithm)
+void SortingTests::SimpleBigNumbers(std::shared_ptr<SortBase> SortingAlgorithm)
 {
     std::vector<int> UnsortedInputVector{ 222222222, 111111111, 333333333, 444444444, 123456789, 555555555 };
     std::vector<int> ExpectedVector{ 111111111, 123456789, 222222222, 333333333, 444444444, 555555555 };
@@ -69,7 +78,7 @@ void SortingTests::SimpleBigNumbers(SortBase* SortingAlgorithm)
     InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);
 }
 
-void SortingTests::SimpleNegative(SortBase* SortingAlgorithm)
+void SortingTests::SimpleNegative(std::shared_ptr<SortBase> SortingAlgorithm)
 {
     std::vector<int> UnsortedInputVector{ -2, -1, -3, -4, -6, -5 };
     std::vector<int> ExpectedVector{ -6, -5, -4, -3, -2, -1 };
@@ -84,7 +93,7 @@ void SortingTests::SimpleNegative(SortBase* SortingAlgorithm)
     InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);
 }
 
-void SortingTests::SimpleRepetition(SortBase* SortingAlgorithm)
+void SortingTests::SimpleRepetition(std::shared_ptr<SortBase> SortingAlgorithm)
 {
     std::vector<int> UnsortedInputVector{ 2, 2, 3, 3, 1, 1, 5, 5, 4, 4 };
     std::vector<int> ExpectedVector{ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5 };
@@ -99,13 +108,80 @@ void SortingTests::SimpleRepetition(SortBase* SortingAlgorithm)
     InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);
 }
 
-void SortingTests::SimpleMix(SortBase* SortingAlgorithm)
+void SortingTests::SimpleMix(std::shared_ptr<SortBase> SortingAlgorithm)
 {
     std::vector<int> UnsortedInputVector{ 2, -1, 3, 3, -4, 1, 5, 5, -1, 0 };
     std::vector<int> ExpectedVector{ -4, -1, -1, 0, 1, 2, 3, 3, 5, 5 };
     std::vector<int> ResultVector{};
 
     std::cout << "SimpleMix" << std::endl;
+
+    ResultVector = SortingAlgorithm->Implementation(UnsortedInputVector);
+    InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);
+
+    ResultVector = SortingAlgorithm->AnotherImplementation(UnsortedInputVector);
+    InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);
+}
+
+void SortingTests::SimpleSmallInput(std::shared_ptr<SortBase> SortingAlgorithm)
+{
+    std::vector<int> UnsortedInputVector{ 1, 0 };
+    std::vector<int> ExpectedVector{ 0, 1 };
+    std::vector<int> ResultVector{};
+
+    std::cout << "SimpleSmallInput" << std::endl;
+
+    ResultVector = SortingAlgorithm->Implementation(UnsortedInputVector);
+    InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);
+
+    ResultVector = SortingAlgorithm->AnotherImplementation(UnsortedInputVector);
+    InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);
+}
+
+void SortingTests::SimpleEmptyInput(std::shared_ptr<SortBase> SortingAlgorithm)
+{
+    std::vector<int> UnsortedInputVector{};
+    std::vector<int> ExpectedVector{};
+    std::vector<int> ResultVector{};
+
+    std::cout << "SimpleEmptyInput" << std::endl;
+
+    ResultVector = SortingAlgorithm->Implementation(UnsortedInputVector);
+    InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);
+
+    ResultVector = SortingAlgorithm->AnotherImplementation(UnsortedInputVector);
+    InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);
+}
+
+void SortingTests::SimpleOneInput(std::shared_ptr<SortBase> SortingAlgorithm)
+{
+    std::vector<int> UnsortedInputVector{ 1 };
+    std::vector<int> ExpectedVector{ 1 };
+    std::vector<int> ResultVector{};
+
+    std::cout << "SimpleOneInput" << std::endl;
+
+    ResultVector = SortingAlgorithm->Implementation(UnsortedInputVector);
+    InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);
+
+    ResultVector = SortingAlgorithm->AnotherImplementation(UnsortedInputVector);
+    InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);
+}
+
+void SortingTests::SimpleBigInput(std::shared_ptr<SortBase> SortingAlgorithm)
+{
+    std::vector<int> UnsortedInputVector{ };
+    std::vector<int> ExpectedVector{ };
+    std::vector<int> ResultVector{};
+
+    const int TotalElements{ 500 };
+    for (int i{ TotalElements }; i >= 0; --i)
+    {
+        UnsortedInputVector.emplace_back(i);
+        ExpectedVector.emplace_back(TotalElements - i);
+    }
+
+    std::cout << "SimpleBigInput" << std::endl;
 
     ResultVector = SortingAlgorithm->Implementation(UnsortedInputVector);
     InitializeTest(UnsortedInputVector, ExpectedVector, ResultVector);

@@ -37,6 +37,13 @@ std::vector<int> Selection::AnotherImplementation(const std::vector<int>& InputV
     std::vector<int> Result{ InputVector };
     const int VectorSize{ static_cast<int>(InputVector.size()) };
 
+    //Start loop from the first element and End on a penultimate element.
+    //Inside the loop we search for the smallest value,
+    //When it's done, we search for the index of the smallest value,
+    //Which will be written as MinIndex.
+    //The next move is to swap Index with MinIndex.
+    //Overall we are moving MinIndex to the first available position,
+    //To be sure that the first element is the smallest one.
     for (int Index{ 0 }; Index < VectorSize - 1; ++Index)
     {
         const std::vector<int>::iterator MinValue{ std::min_element(Result.begin() + Index, Result.end()) };
