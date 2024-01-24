@@ -105,7 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\Programming learning\Algorithms\Sorting\SortingAlgorithms\SortingAlgorithms\Public;E:\Programming learning\Algorithms\Sorting\SortingAlgorithms\SortingAlgorithms\Private</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\Programming learning\Algorithms\Sorting\SortingAlgorithms\Public;E:\Programming learning\Algorithms\Sorting\SortingAlgorithms\Private</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,6 +138,10 @@
     <ClInclude Include="Public\SortAlgorithms\Selection.h" />
     <ClInclude Include="Public\SortAlgorithms\SortBase.h" />
     <ClInclude Include="Public\Tests\SortingTests.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
